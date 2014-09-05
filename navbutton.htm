@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><style>body { font-family: "Arial"; font-size: 12pt; }</style></head>
+<body style="margin:0px; padding:2px;background-color:#F0F8FF">
+<div align="right"><button onclick="viewHtml()">View HTML</button>&nbsp;&nbsp;<button onclick="viewCode()">View Code</button>&nbsp;&nbsp;
+<button onclick="javascript:Back()">Back</button></div>
+<script>
+var prevLoc = null;
+function viewCode()
+{
+    if (parent.frames[2].location.pathname.indexOf("viewcode") > 0) return;
+    prevLoc = parent.frames[2].location.pathname;
+    parent.frames[2].location.href = "viewcode.aspx?path=" + parent.frames[2].location.pathname + ".cs&lang=sh_csharp";    
+}
+function viewHtml()
+{
+    if (parent.frames[2].location.pathname.indexOf("viewcode") > 0) return;
+    prevLoc = parent.frames[2].location.pathname;
+    parent.frames[2].location.href = "viewcode.aspx?path=" + parent.frames[2].location.pathname + "&lang=sh_javascript";
+}
+function Back()
+{
+    if (prevLoc == null) return;
+    parent.frames[2].location.href = prevLoc;
+    prevLoc = null;
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+body
+{
+	font-family: Arial;
+	font-size: 11pt;
+}
+
+.left { float: left; }
+.right {overflow:hidden; padding: 4px;}
